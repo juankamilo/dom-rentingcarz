@@ -14,16 +14,8 @@
                         </nav>
                     @endif
                 <div class="card-header">
-
-                    @if (isset($response) && !empty($response))
-                        <h1>{{$response->competition->name}} - Season {{$response->filters->season}}</h1>
-                        <h2>Total of {{$response->resultSet->count}} games
-                            <br>
-                            Starts at {{$response->resultSet->first}} and ends at {{$response->resultSet->last}} |
-                            Played {{$response->resultSet->played}}</h2>
-                    @else
-                        <h1>View Season - View games</h1>
-                    @endif
+                    <h1>Your Personal Selection - Season 2022</h1>
+                    <h2>Total of {{count($games_saved)}} games
                 </div>
 
                 <div class="card-body">
@@ -32,33 +24,27 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="{{url('index')}}">all games this season</a>
+                    <a href="{{url('index')}}">All games this season</a>
                         |
                     <a href="{{url('index/1')}}">Upcoming Games from this date (today)</a>
                         |
                     <a href="{{url('index/0/1')}}">Your Personal Selection</a>
                 </div>
                 <div>
-
-                    @if (isset($response) && !empty($response))
-
                         <ul>
-                            @foreach ($response->matches as $key => $body)
+                            @foreach ($games_saved as $key => $body)
                                 <form method="post" action="/savegame">
                                     @csrf
                                     <li>
-                                        <b>Day/Hour:</b> {{ $dategame = substr(str_replace('T', ' / ', $body->utcDate), 0, -1)}}
+                                        <b>Day/Hour:</b> {{ $dategame = $body->dategame }}
                                         -
-                                        @if (!in_array($body->id, $games_saved))
-                                            <input type="submit" name="submit" value="Save this game"></li>
-                                    @else
-                                        <a href="../destroy/{{$body->id}}">Remove this game from the Personal Team</a>
-                                    @endif
+                                        <a href="../../destroy/{{$body->id}}">Remove this game from the Personal Team</a>
+
                                     <li><b>Status:</b> {{ $status = $body->status }}</li>
                                     <li><b>stage:</b> {{ $stage = $body->stage }}</li>
-                                    <li><b>Home Team:</b> {{ $team_home = $body->homeTeam->name }}</li>
-                                    <li><b>Away Team:</b> {{ $team_away = $body->awayTeam->name }}</li>
-                                    <li><b>Winner:</b> {{ $winner =  $body->score->winner }}</li>
+                                    <li><b>Home Team:</b> {{ $team_home = $body->home_team }}</li>
+                                    <li><b>Away Team:</b> {{ $team_away = $body->away_team }}</li>
+                                    <li><b>Winner:</b> {{ $winner =  $body->winner }}</li>
                                     <p>
 
                                         <input type="hidden" name="game" value="{{ json_encode([
@@ -73,8 +59,6 @@
                                 </form>
                             @endforeach
                         </ul>
-
-                    @endif
                 </div>
             </div>
         </div>

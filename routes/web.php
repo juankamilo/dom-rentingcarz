@@ -19,4 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home', 'HomeController@index')->name('home');
+
+Route::get('index/{withDate?}/{personal?}', 'FootballController@index');
+
+Route::post('savegame', 'FootballController@store');
+
+Route::get('destroy/{id?}', 'FootballController@destroy');
+
