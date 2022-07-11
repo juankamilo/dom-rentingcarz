@@ -64,7 +64,9 @@ class FootballController extends Controller
             return view($destination, ['personal' => $personal, 'games_saved' => $games_saved, 'response' => $response]
             );
         } catch (\Illuminate\Database\QueryException $e) {
-            return redirect()->back()->withErrors($e->getMessage());
+            return redirect()->back()->withErrors(['msgErro' => $e->getMessage()]);
+        } catch (Exception $e) {
+            return redirect()->back()->withErrors(['msgErro' => $e->getMessage()]);
         }
     }
 
