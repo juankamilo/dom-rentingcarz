@@ -1,50 +1,54 @@
-## Descrição do Projeto
+## Project description
 
-RentIngCarz - Leitura de API Futebol
+## Goal
 
-### 🛠 Tecnologias
+Create an application that contains:
 
-As seguintes ferramentas foram usadas na construção do projeto:
+     - API to consult the next European soccer matches to be held (you can choose the league of your choice) the info and documentation is given by the resource defined below,
+     - Front where to view the results (the appearance does not matter, but it must be readable).
+     - You must store the matches (matches) received from the API in a database, these must not be repeated.
+
+### 🛠 Technologies
+
+The following tools were used in building the project:
 
 - [Laravel v7.30.4](https://laravel.com/docs/7.x)
 - [PHP 7.4.3](https://www.php.net/downloads.php#v7.4.3)
 - [MySql:5.7](https://www.mysql.com/)
 
-Modelo Fazendo em Linux Ubunto 20.4
+Model Making in Linux Ubuntu 20.4
 
-## Começando
+## Starting
 
-Clone o repositório do projeto:
+Clone the project repository:
 
-Caso você use HTTPS:
+If you use HTTPS:
 
 git clone https://github.com/dompossebon/rentingcarz.git
 
----------------------------------------------------------
+-------------------------------------------------- -------
 
-Após a clonagem, entre no diretório da aplicação:
+After cloning, enter the application directory:
 
-cd rentingcarz
+- cd rentingcarz
 
-docker-compose build rentingcarz-app
+- docker-compose build rentingcarz-app
 
-docker-compose up -d
+- docker-compose up -d
 
-Na raiz do projeto localize e Duplique o arquivo .env.example e em seguida renomeie-o para .env usando o comando:
+In the project root, locate and Duplicate the .env.example file and then rename it to .env using the command:
 
-cp .env.example .env
+- cp .env.example .env
 
-em seguida execute o comandos abaixo:
+-------------------------------------------------- -------
 
-docker-compose exec rentingcarz-app composer install
+then run the commands below:
 
----------------------------------------------------------
-
-Então rode o comando:
+- docker-compose exec rentingcarz-app composer install
 
 - docker-compose exec rentingcarz-app php artisan key:generate
 
-então siga digitando os comandos...
+then continue typing the commands...
 
 - docker-compose exec rentingcarz-app php artisan cache:clear
 
@@ -52,16 +56,19 @@ então siga digitando os comandos...
 
 - docker-compose exec rentingcarz-app php artisan migrate
 
+Now put the Project to the test!
+Good Enjoy!
+
 - http://localhost:8000
 
----------------------------------------------------------
+-------------------------------------------------- -------
 
-## COLOCANDO O SERVIDOR LARAVEL EM AÇÃO
+## PUTTING THE LARAVEL SERVER INTO ACTION
 
-## Construído com
-Laravel - O framework PHP para artesãos da Web
+## Built with
+Laravel - The PHP Framework for Web Craftsmen
 
-## by Possebon
-## Contato dompossebon@gmail.com
+## by Dom Possebon
+## Contact dompossebon@gmail.com
 
 :+1: ## By Possebon

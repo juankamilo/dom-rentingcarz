@@ -23,5 +23,6 @@ use Illuminate\Support\Facades\Route;
 //Route::group(['middleware' => ['apiJwt']], function (){
 //
 //                Route::post('auth/logout', 'Api\\AuthController@logout');
+
 //                Route::get('destroy/{id?}', 'Api\\FootballController@destroy');
 //});

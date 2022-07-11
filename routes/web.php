@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,10 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('home', 'HomeController@index')->name('home');
-
 Route::get('index/{withDate?}/{personal?}', 'FootballController@index');
 
 Route::post('savegame', 'FootballController@store');
-
 Route::get('destroy/{id?}', 'FootballController@destroy');
 

@@ -18,13 +18,12 @@ class FootballController extends Controller
 {
     /**
      * Display a listing of the games.
-     * @param Request $request
      * @param $withDate
      * @param $personal
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function index(Request $request, $withDate = false, $personal = false)
+    public function index($withDate = false, $personal = false)
     {
         try {
             $check = Game::where('user_id', Auth::user()->getAuthIdentifier())->first();
@@ -62,11 +61,11 @@ class FootballController extends Controller
                 $response = json_decode($getResponse->getBody()->getContents());
             }
 
-            return view($destination, ['personal' => $personal, 'games_saved' => $games_saved, 'response' => $response]);
+            return view($destination, ['personal' => $personal, 'games_saved' => $games_saved, 'response' => $response]
+            );
         } catch (\Illuminate\Database\QueryException $e) {
             return redirect()->back()->withErrors($e->getMessage());
         }
-
     }
 
     /**
