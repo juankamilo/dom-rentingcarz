@@ -7,4 +7,5 @@
 --                           PRIMARY KEY (`id`)
 -- ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 --
--- INSERT INTO `places` (name, visited) VALUES ('possebon',0),('tatiana2',0),('Cincinnati',1),('Denver',0),('Helsinki',0),('Lisbon',0),('Moscow',1),('Nairobi',0),('Oslo',1),('Rio',0),('Tokyo',0);
+-- INSERT INTO `places` (name, visited) VALUES ('possebon1',0),('tatiana2',0),('Cincinnati',1),('Denver',0),('Helsinki',0),('Lisbon',0),('Moscow',1),('Nairobi',0),('Oslo',1),('Rio',0),('Tokyo',0);
+
